@@ -1,18 +1,10 @@
-Welcome to your Appcelerator Titanium Mobile Project
+HOW TO INSTALL : 
 
-This is a blank project.  Start by editing your application's app.js to 
-make your first mobile project using Titanium.
+1. Clone this repository.
+git clone git@github.com:kiddcode/Event_Kota_Apps.git | within your Titanium_Studio_Workspace.
 
+2. Change Branch to Develop.
+git checkout develop | for prepare development. 
 
-
-----------------------------------
-Stuff our legal folk make us say:
-
-Appcelerator, Appcelerator Titanium and associated marks and logos are 
-trademarks of Appcelerator, Inc. 
-
-Titanium is Copyright (c) 2008-2013 by Appcelerator, Inc. All Rights Reserved.
-
-Titanium is licensed under the Apache Public License (Version 2). Please
-see the LICENSE file for the full license.
-
+3. Compile.
+By click Debug Button at Titanium Studio menubar which you had setting your preferred configuration.
