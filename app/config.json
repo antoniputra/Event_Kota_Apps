@@ -1,0 +1,13 @@
+{
+	"global": {
+		"ApiUrl":"http://eventkota.com/api/"
+	},
+	"env:development": {}, 
+	"env:test": {}, 
+	"env:production": {}, 
+	"os:android": {},
+	"os:blackberry": {},
+	"os:ios": {},
+	"os:mobileweb": {},
+	"dependencies": {}
+}

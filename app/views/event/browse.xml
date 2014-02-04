@@ -1,0 +1,11 @@
+<Alloy>
+	<Require src="tabHome"> </Require>
+
+	<View id="viewWrapper" class="container">
+		<View id="tableViewContainer">
+			<Label>Aku Label</Label>
+			<Label id="title"></Label>
+			<TableView id="table" class="tableDefault" />
+		</View>
+	</View>
+</Alloy>

@@ -1,0 +1,15 @@
+".container" : {
+  
+},
+
+"#viewWrapper" : {
+    backgroundColor:'#fafafa',
+    top:50,
+    left:0
+},
+
+".tableDefault" : {
+    backgroundColor:'#fafafa',
+    top:0,
+    left:0
+}
