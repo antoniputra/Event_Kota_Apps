@@ -1,0 +1,13 @@
+<Alloy>
+	<View id="browseMenuWrapper" class="container">
+		<View id="yesterdayView" class="typeView" onClick="changeDate" >
+			<Label id="yesterdayLabel" />
+		</View>
+		<View id="todayView" class="typeView" onClick="changeDate">
+			<Label id="todayLabel"/>
+		</View>
+		<View id="tomorrowView" class="typeView" onClick="changeDate">
+			<Label id="tomorrowLabel"/>
+		</View>
+	</View>
+</Alloy>

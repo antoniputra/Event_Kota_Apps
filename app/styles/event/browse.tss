@@ -1,15 +1,22 @@
 ".container" : {
   
-},
+}
 
-"#viewWrapper" : {
-    backgroundColor:'#fafafa',
+"#browseViewWrapper" : {
+    backgroundColor:'#222',
+    top:0,
+    left:0,
+    width: Ti.UI.FILL,
+	height: Ti.UI.FILL
+}
+
+"#contentWrapper" : {
     top:50,
     left:0
-},
+}
 
 ".tableDefault" : {
-    backgroundColor:'#fafafa',
+    color:'#fdfdfd',
     top:0,
     left:0
 }

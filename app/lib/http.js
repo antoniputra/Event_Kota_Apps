@@ -26,6 +26,7 @@ exports.request = function(apikey, callbacknya) {
 		http = Ti.Network.createHTTPClient();
 
 		http.onload = function() {
+			Ti.API.debug('Result for JSON nya prend : ' + JSON.stringify(this.responseText));
 			callbacknya({data: JSON.parse(this.responseText)});
 		};
 		http.onerror = function(e) {

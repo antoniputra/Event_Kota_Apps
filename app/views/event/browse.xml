@@ -1,11 +1,12 @@
 <Alloy>
-	<Require src="tabHome"> </Require>
+	<View id="browseViewWrapper" class="container">
 
-	<View id="viewWrapper" class="container">
-		<View id="tableViewContainer">
-			<Label>Aku Label</Label>
+		<!-- <Widget src="com.alco.headerbar" id="headerbar"/>  -->
+		<!-- <Require src="event/browseMenu" id="browseMenuID" /> -->
+
+		<View id="contentWrapper">
 			<Label id="title"></Label>
-			<TableView id="table" class="tableDefault" />
+			<TableView id="tableBrowse" class="tableDefault" />
 		</View>
 	</View>
 </Alloy>

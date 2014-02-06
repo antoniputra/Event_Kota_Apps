@@ -11,4 +11,28 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 
 Alloy.Globals.setServiceApi = require("serviceApi");
-Alloy.Globals.serviceApi	= new Alloy.Globals.setServiceApi(); 
+Alloy.Globals.serviceApi	= new Alloy.Globals.setServiceApi();
+Alloy.Globals.getCurrentDate = function(format)
+{
+	if(!format) {
+		format = 'dd-mm-yyyy';
+	}
+
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+
+	var yyyy = today.getFullYear();
+	if(dd < 10) { dd ='0'+dd; }
+	if(mm < 10) { mm ='0'+mm; }
+
+	if( format == 'dd-mm-yyyy' ) {
+		today = dd+'-'+mm+'-'+yyyy;
+	} else if( format == 'mm-dd-yyyy' ) {
+		today = mm+'-'+dd+'-'+yyyy;
+	} else if( format == 'yyyy-mm-dd' ) {
+		today = yyyy+'-'+mm+'-'+dd;
+	}
+	
+	return today;
+};

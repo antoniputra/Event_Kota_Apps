@@ -1,27 +1,21 @@
-Alloy.Globals.MainController = $;
-
 Alloy.Globals.MainWindow = $.mainWindow;
 
 Alloy.Globals.MainWindow.open();
-
-// Alloy.Globals.EventBrowse = Alloy.createController("event/browse");
 
 initHome();
 
 function initHome()
 {
-	Ti.API.info('masuk initHome');
+	Ti.API.info('===== Home ---> for show Event Today =====');
 
-	/*var setServiceApi = require("serviceApi");
-	var serviceApi	= new setServiceApi();*/
+	var currentDate = Alloy.Globals.getCurrentDate('yyyy-mm-dd'),
+		eventToday = 'get_date_posts/?date='+ currentDate +'&post_type=event&pages=1';
 	
 	Alloy.Globals.serviceApi.getEventByDate({
-		apikey:'get_date_posts/?date=2014-01&post_type=event&pages=1'
-		// apikey:'get_posts/'
+		apikey: eventToday
 	}, function(results) {
+		results.apiKey = eventToday;
+		Ti.API.debug( '===== Debug JSON API ---> ' + JSON.stringify(results) );
 		Alloy.Globals.MainWindow.add( Alloy.createController("event/browse", results).getView() );
 	});
-
-	// Alloy.Globals.MainWindow.add(Alloy.Globals.EventBrowse.getView());
-	// Alloy.Globals.EventBrowse.open();
 }
