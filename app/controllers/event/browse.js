@@ -1,90 +1,77 @@
 var args = arguments[0] || {},
-	viewBrowse = $.browseViewWrapper;
+	viewBrowse 	= $.browseViewWrapper,
+	moment 		= require('alloy/moment');
 
-renderBrowseMenu();
+Ti.API.info( '===== LIHAT ARGS at method Browse ---> ' + JSON.stringify(args) );
 
-renderBrowse();
+var loading = Alloy.Globals.showLoading('Retrieving Events...');
+viewBrowse.add(loading);
+loading.show();
 
-function renderBrowse()
+Alloy.Globals.serviceApi.getEventByDate({
+	apikey: args.apiKey
+}, function(results) {
+	
+	// hide loading
+	viewBrowse.remove(loading);
+
+	Ti.API.debug( '===== Debug JSON API at method Browse ---> ' + JSON.stringify(results) );
+	renderBrowse(results);
+});
+
+function renderBrowse(params)
 {
-	Ti.API.debug('Debug API-KEY : ' + args.apiKey);
-
-	var items = args.data.posts;
+	var items = params.data.posts;
 	var tableData = [];
 
-	Ti.API.debug('===== Length Post : ' + items.length);
+	Ti.API.debug('===== Debug API-KEY : ' + args.apiKey + ' | Length Post : ' + items.length );
 
-	if(args.data.count_total > 0)
+	if(params.data.count_total > 0)
 	{
 		for (var i = 0; i < Math.min(items.length,10); i++) 
 	    {
 	        var post = items[i];
 
-	        var st_time     = (post.custom_fields.st_time) ? post.custom_fields.st_time : '' ;
-	        var end_time    = (post.custom_fields.end_time) ? post.custom_fields.end_time : '' ;
+	        if(typeof post.custom_fields.st_date != 'undefined') {
+	        	var moment_st_date 	= moment(post.custom_fields.st_date[0], "YYYY-MM-DD");
+	        	var st_date 		= moment_st_date.format("dddd, DD MMM");
+	        }
 
+	        if(typeof post.custom_fields.end_date != 'undefined') {
+	        	var moment_end_date = moment(post.custom_fields.end_date[0], "YYYY-MM-DD");
+	        	var end_date 		= moment_end_date.format("dddd, DD MMM");		
+	        }
 
-	        var row = Ti.UI.createTableViewRow({
-	            className:'forumEvent', // used to improve table performance
-	            backgroundSelectedColor:'#b0b0b0',
-	            rowIndex:i,
-	            height:110
-	        });
-	        	
-	        var post_thumb = Ti.UI.createImageView({
-	            image: ( typeof(post.thumbnail_images) != "undefined" && post.thumbnail_images !== null ) ? post.thumbnail_images.tevolution_thumbnail.url : '',
-	            left:10, top:5,
-	            width:50, height:50
-	        });
-	        row.add(post_thumb);
+	        var st_time     = ( typeof post.custom_fields.st_time != 'undefined') ? post.custom_fields.st_time[0] : '' ;
+	        var end_time    = ( typeof post.custom_fields.end_time != 'undefined') ? post.custom_fields.end_time[0] : '' ;
 
-	        var post_title = Ti.UI.createLabel({
-	            color:'#fdfdfd',
-	            font:{fontFamily:'Arial', fontWeight:'bold'},
-	            text:post.title_plain,
-	            objName: '?id='+ post.id + '&post_type=event',
-	            left:70, top: 2,
-	            width:Ti.UI.FILL, height: 50
-	        });
-	        row.add(post_title);
+	        /*Ti.API.debug('===== Lihat Waktunya Prend : ' + post.custom_fields.st_date + ' convert menjadi : ' + st_date );
+	        Ti.API.debug('===== Lihat Waktunya Prend 2 : ' + post.custom_fields.end_date + ' convert menjadi : ' + end_date );*/
 
-	        post_title.addEventListener('click', function(e) {
-	            Ti.API.info('User clicked the title ');
-
-	            var param = e.source.objName;
-
-	            alert('Detail Event ID : ' + param);
-	        });
-
-	        var post_time = Ti.UI.createLabel({
-	            color:'#f0f0f0',
-	            font:{fontFamily:'Arial', fontWeight:'normal'},
-	            text:post.custom_fields.st_date + ' ' + st_time + ' -- ' + post.custom_fields.end_date + ' ' + end_time,
-	            left:70, top:40,
-	            width:Ti.UI.FILL
-	        });
-	        row.add(post_time);
-	        	
+	        var paramArgs = {
+	        	number: i,
+		        image: ( typeof(post.thumbnail_images) != 'undefined' && post.thumbnail_images !== null ) ? post.thumbnail_images.tevolution_thumbnail.url : '',
+		        start_at: st_date +' '+ st_time,
+		        finish_at: end_date +' '+ end_time,
+		        apiDetail: 'get_post/?id='+ post.id +'&post_type=event',
+		        title: post.title_plain,
+		        address: (typeof post.custom_fields.address != 'undefined') ? post.custom_fields.address[0] : ''
+		    };
+		    var row = Alloy.createController('event/browseRow', paramArgs).getView();
 	        tableData.push(row);
 	    }
 
 	    $.tableBrowse.data = tableData;
 	} else {
-		
-		var row = Ti.UI.createTableViewRow({
-            className:'forumEvent',
-            backgroundSelectedColor:'#b0b0b0',
-            height:110
-        });
 
-    	var post_title = Ti.UI.createLabel({
+		var row = Ti.UI.createTableViewRow();
+
+    	var title = Ti.UI.createLabel({
             color:'#fdfdfd',
             font:{fontFamily:'Arial', fontWeight:'bold'},
-            text:'Today no events happening',
-            width:Ti.UI.FILL, 
-            height: 50
+            text:'No Events happening'
         });
-        row.add(post_title);
+        row.add(title);
 
         tableData.push(row);
 
@@ -92,7 +79,7 @@ function renderBrowse()
 	}
 }
 
-function renderBrowseMenu()
+/*function renderBrowseMenu()
 {
 	Ti.API.debug('Ini adalah method renderBrowseMenu');
 
@@ -101,4 +88,4 @@ function renderBrowseMenu()
 	    objName: args.apiKey || 'jancok metuo cook'
 	}).getView();
 	viewBrowse.add( browseMenu );
-}
+}*/

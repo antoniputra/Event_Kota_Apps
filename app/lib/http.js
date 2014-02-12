@@ -31,7 +31,7 @@ exports.request = function(apikey, callbacknya) {
 		};
 		http.onerror = function(e) {
 			Ti.API.debug(e.error);
-			alert('error');
+			alert('No Internet Connection');
 
 			return false;
 		};

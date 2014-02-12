@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>com.mataharilabs.eventkota</id>
-    <name>EventKota</name>
+    <name>Event Kota</name>
     <version>1.0</version>
-    <publisher>mataharilabs</publisher>
+    <publisher>Antoni</publisher>
     <url>http://mataharilabs.com</url>
-    <description>not specified</description>
-    <copyright>not specified</copyright>
+    <description>Portal Events #1</description>
+    <copyright>2014 Powered by MatahariLabs</copyright>
     <icon>logo.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>

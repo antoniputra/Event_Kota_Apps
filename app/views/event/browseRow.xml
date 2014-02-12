@@ -1,0 +1,14 @@
+<Alloy>
+	<TableViewRow id="tableRow">
+		<View id="tableRowView">
+			<View id="tableImageView">
+				<ImageView id="tableRowImage" />
+			</View>
+			<View id="tableDataView">
+				<Label id="tableRowTime" />
+				<Label id="tableRowTitle" />
+				<Label id="tableRowAddress" />
+			</View>
+		</View>
+	</TableViewRow>
+</Alloy>

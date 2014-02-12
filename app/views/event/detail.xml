@@ -1,0 +1,51 @@
+<Alloy>
+	<Window>
+		<View id="detailView">
+			
+			<View id="bannerView">
+				<ImageView id="bannerImage" />
+
+				<View id="bannerViewLabel">
+					<Label id="categoryLabel" />
+					<Label id="titleLabel" />
+				</View>
+			</View>
+
+			<View id="buttonView">
+				<Button id="buttonAttending" onClick="doAttending" title="Attending" class="btnMenu" left="10dp"  />
+				<Button id="buttonViewMap" onClick="doViewMap" title="View Map" class="btnMenu" right="10dp" />
+				<Button id="buttonShare" onClick="doShare" title="Share" class="btnMenu" right="10dp" />
+			</View>
+
+			<ScrollView id="detailScrollView">
+				<View id="detailViewPadding">
+					
+					<View id="infoContainer">
+						<View class="infoRow">
+							<Label class="infoKey">Date</Label>
+							<Label id="infoDate" class="infoValue" />
+						</View>
+						<View class="infoRow">
+							<Label class="infoKey">Time</Label>
+							<Label id="infoTime" class="infoValue" />
+						</View>
+						<View class="infoRow">
+							<Label class="infoKey">Location</Label>
+							<Label id="infoLocation" class="infoValue" />
+						</View>
+						<View class="infoRow" bottom="3dp">
+							<Label class="infoKey">Phone</Label>
+							<Label id="infoPhone" class="infoValue" />
+						</View>
+					</View>
+
+
+					<Label id="descriptionText">Description</Label>
+					<Label id="detailContent" top="2" />
+
+				</View>
+			</ScrollView>
+
+		</View>
+	</Window>
+</Alloy>

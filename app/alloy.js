@@ -1,14 +1,10 @@
-// The contents of this file will be executed before any of
-// your view controllers are ever executed, including the index.
-// You have access to all functionality on the `Alloy` namespace.
-//
-// This is a great place to do any initialization for your app
-// or create any global variables/functions that you'd like to
-// make available throughout your app. You can easily make things
-// accessible globally by attaching them to the `Alloy.Globals`
-// object. For example:
-//
-// Alloy.Globals.someGlobalFunction = function(){};
+if( OS_ANDROID ) {
+    Alloy.Globals.Android = { 
+        "Api" : Ti.Platform.Android.API_LEVEL
+    };
+}
+
+var helper = require("helper");
 
 Alloy.Globals.setServiceApi = require("serviceApi");
 Alloy.Globals.serviceApi	= new Alloy.Globals.setServiceApi();
@@ -35,4 +31,28 @@ Alloy.Globals.getCurrentDate = function(format)
 	}
 	
 	return today;
+};
+
+Alloy.Globals.showLoading = function(message, callback) {
+
+	var loading = Ti.UI.createActivityIndicator({
+		message: message || "  Loading... ",
+		backgroundColor: "#000000",
+		color: "#ffffff",
+		height: Ti.UI.FILL,
+		width: Ti.UI.FILL,
+		borderRadius: 8,
+		opacity: 0.8,
+		font: {
+			fontSize: 18,
+			fontWeight: "bold"
+		}
+	});
+
+	return loading;
+};
+
+Alloy.Globals.hideLoading = function(container) {
+	container.remove(loading);
+	loading = null;
 };

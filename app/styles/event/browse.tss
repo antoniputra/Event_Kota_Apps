@@ -11,12 +11,12 @@
 }
 
 "#contentWrapper" : {
-    top:50,
+    top:5,
     left:0
 }
 
 ".tableDefault" : {
     color:'#fdfdfd',
-    top:0,
-    left:0
+    separatorColor:'transparent',
+    top:0, left:0
 }

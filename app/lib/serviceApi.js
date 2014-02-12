@@ -3,10 +3,6 @@ function serviceApi() {
 	this.lastName = lastName;*/
 }
 
-serviceApi.prototype.fullName = function() {
-	/*return this.firstName+' '+this.lastName;*/
-};
-
 serviceApi.prototype.getEventByDate = function(params, results) {
 
 	var api = require("http");

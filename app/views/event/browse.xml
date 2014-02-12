@@ -1,12 +1,9 @@
 <Alloy>
 	<View id="browseViewWrapper" class="container">
-
-		<!-- <Widget src="com.alco.headerbar" id="headerbar"/>  -->
-		<!-- <Require src="event/browseMenu" id="browseMenuID" /> -->
-
 		<View id="contentWrapper">
-			<Label id="title"></Label>
+
 			<TableView id="tableBrowse" class="tableDefault" />
+			
 		</View>
 	</View>
 </Alloy>
