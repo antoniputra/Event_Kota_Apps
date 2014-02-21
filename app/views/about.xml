@@ -1,0 +1,12 @@
+<Alloy>
+	<View class="container" layout="vertical" top="10dp" right="10dp" bottom="10dp" left="10dp">
+		<Label top="0dp" color="white" fontSize="20" fontWeight="bold">About MatahariLabs</Label>
+		<Label top="5dp" textAlign="left" fontSize="16">
+			Jiffie duke derided kid fir jerrie duke jerk Jiffie duke derided kid fir jerrie duke jerkJiffie duke derided kid fir jerrie duke jerk Jiffie duke derided kid fir jerrie duke jerk
+
+			Jiffie duke derided kid fir jerrie duke jerk Jiffie duke derided kid fir jerrie duke jerkJiffie duke derided kid fir jerrie duke jerk Jiffie duke derided kid fir jerrie duke jerk
+
+			Jiffie duke derided kid fir jerrie duke jerk Jiffie duke derided kid fir jerrie duke jerkJiffie duke derided kid fir jerrie duke jerk Jiffie duke derided kid fir jerrie duke jerk
+		</Label>
+	</View>
+</Alloy>

@@ -3,7 +3,7 @@
 }
 
 "#browseViewWrapper" : {
-    backgroundColor:'#222',
+    backgroundColor:'#111',
     top:0,
     left:0,
     width: Ti.UI.FILL,
@@ -11,12 +11,20 @@
 }
 
 "#contentWrapper" : {
-    top:5,
+    layout: "vertical",
+    top:3,
     left:0
+}
+
+"#labelInfo" : {
+    top: 2,
+    width: Ti.UI.FILL,
+    textAlign: "center",
+    color:'#fdfdfd'
 }
 
 ".tableDefault" : {
     color:'#fdfdfd',
     separatorColor:'transparent',
-    top:0, left:0
+    top:2, left:0
 }

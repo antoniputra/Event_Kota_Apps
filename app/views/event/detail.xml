@@ -1,25 +1,23 @@
 <Alloy>
-	<Window>
+	<Window fullscreen="false">
 		<View id="detailView">
 			
-			<View id="bannerView">
-				<ImageView id="bannerImage" />
-
+			<View id="titleView">
 				<View id="bannerViewLabel">
-					<Label id="categoryLabel" />
 					<Label id="titleLabel" />
+					<Label id="categoryLabel" />
 				</View>
 			</View>
 
 			<View id="buttonView">
-				<Button id="buttonAttending" onClick="doAttending" title="Attending" class="btnMenu" left="10dp"  />
-				<Button id="buttonViewMap" onClick="doViewMap" title="View Map" class="btnMenu" right="10dp" />
+				<Button id="buttonViewMap" onClick="doViewMap" title="View Map" class="btnMenu" left="10dp" />
 				<Button id="buttonShare" onClick="doShare" title="Share" class="btnMenu" right="10dp" />
 			</View>
 
 			<ScrollView id="detailScrollView">
+				<ImageView id="bannerImage" />
+				
 				<View id="detailViewPadding">
-					
 					<View id="infoContainer">
 						<View class="infoRow">
 							<Label class="infoKey">Date</Label>
@@ -39,10 +37,8 @@
 						</View>
 					</View>
 
-
 					<Label id="descriptionText">Description</Label>
 					<Label id="detailContent" top="2" />
-
 				</View>
 			</ScrollView>
 

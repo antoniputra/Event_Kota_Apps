@@ -27,5 +27,5 @@ rowTitle.addEventListener('click', function(e) {
 	}*/
 	// alert('Lihat Detail : '+ e.source.apiDetail);
 	Ti.API.info('Lihat e.source prend  : ' + JSON.stringify(e.source) );
-	Alloy.createController( 'event/detail', {apiKey: e.source.apiDetail} ).getView().open();
+	Alloy.createController( 'event/detail', {apiKey: e.source.apiDetail} ).getView();
 });

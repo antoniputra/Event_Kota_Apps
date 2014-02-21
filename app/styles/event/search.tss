@@ -1,0 +1,10 @@
+"#formView" : {
+	layout: "vertical",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE
+}
+
+".formControls" : {
+	layout: "vertical",
+	top: '5dp', right: '5dp', bottom: '5dp', left: '5dp'
+}

@@ -1,37 +1,28 @@
 if( OS_ANDROID ) {
+	// Declare Android API
     Alloy.Globals.Android = { 
         "Api" : Ti.Platform.Android.API_LEVEL
     };
-}
+
+    // Declare Map Module
+    // Ti.Map = require('ti.map');
+}/* else if (OS_IOS) {
+	var parts = Ti.version.split('.'),
+		major = parseInt(parts[0], 10),
+		minor = parseInt(parts[1], 10);
+
+	if (major > 3 || (major === 3 && minor >= 2)) {
+		Ti.Map = require('ti.map');
+	}
+}*/
+
+// Declare Map Module
+Ti.Map = require('ti.map');
 
 var helper = require("helper");
 
 Alloy.Globals.setServiceApi = require("serviceApi");
 Alloy.Globals.serviceApi	= new Alloy.Globals.setServiceApi();
-Alloy.Globals.getCurrentDate = function(format)
-{
-	if(!format) {
-		format = 'dd-mm-yyyy';
-	}
-
-	var today = new Date();
-	var dd = today.getDate();
-	var mm = today.getMonth()+1; //January is 0!
-
-	var yyyy = today.getFullYear();
-	if(dd < 10) { dd ='0'+dd; }
-	if(mm < 10) { mm ='0'+mm; }
-
-	if( format == 'dd-mm-yyyy' ) {
-		today = dd+'-'+mm+'-'+yyyy;
-	} else if( format == 'mm-dd-yyyy' ) {
-		today = mm+'-'+dd+'-'+yyyy;
-	} else if( format == 'yyyy-mm-dd' ) {
-		today = yyyy+'-'+mm+'-'+dd;
-	}
-	
-	return today;
-};
 
 Alloy.Globals.showLoading = function(message, callback) {
 

@@ -2,6 +2,7 @@
 	<View id="browseViewWrapper" class="container">
 		<View id="contentWrapper">
 
+			<Label id="labelInfo" />
 			<TableView id="tableBrowse" class="tableDefault" />
 			
 		</View>

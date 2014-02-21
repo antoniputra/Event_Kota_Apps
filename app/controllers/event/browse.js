@@ -2,7 +2,7 @@ var args = arguments[0] || {},
 	viewBrowse 	= $.browseViewWrapper,
 	moment 		= require('alloy/moment');
 
-Ti.API.info( '===== LIHAT ARGS at method Browse ---> ' + JSON.stringify(args) );
+Ti.API.info( '===== Request this API ---> ' + args.apiKey );
 
 var loading = Alloy.Globals.showLoading('Retrieving Events...');
 viewBrowse.add(loading);
@@ -15,16 +15,17 @@ Alloy.Globals.serviceApi.getEventByDate({
 	// hide loading
 	viewBrowse.remove(loading);
 
-	Ti.API.debug( '===== Debug JSON API at method Browse ---> ' + JSON.stringify(results) );
 	renderBrowse(results);
 });
 
 function renderBrowse(params)
 {
+	$.labelInfo.text = args.infoData;
+
 	var items = params.data.posts;
 	var tableData = [];
 
-	Ti.API.debug('===== Debug API-KEY : ' + args.apiKey + ' | Length Post : ' + items.length );
+	//Ti.API.debug('===== Debug API-KEY : ' + args.apiKey + ' | Length Post : ' + items.length );
 
 	if(params.data.count_total > 0)
 	{
@@ -44,9 +45,6 @@ function renderBrowse(params)
 
 	        var st_time     = ( typeof post.custom_fields.st_time != 'undefined') ? post.custom_fields.st_time[0] : '' ;
 	        var end_time    = ( typeof post.custom_fields.end_time != 'undefined') ? post.custom_fields.end_time[0] : '' ;
-
-	        /*Ti.API.debug('===== Lihat Waktunya Prend : ' + post.custom_fields.st_date + ' convert menjadi : ' + st_date );
-	        Ti.API.debug('===== Lihat Waktunya Prend 2 : ' + post.custom_fields.end_date + ' convert menjadi : ' + end_date );*/
 
 	        var paramArgs = {
 	        	number: i,

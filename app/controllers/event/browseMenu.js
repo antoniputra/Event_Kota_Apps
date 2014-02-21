@@ -1,44 +1,65 @@
-/*var args = arguments[0] || {};
+var args = arguments[0] || {};
 
-Ti.API.debug( '===== Debug ALL ARGUMENTS ---> ' + JSON.stringify(args) );
-Ti.API.debug( '===== Debug Arguments ---> ' + JSON.stringify(args.objName) );
+$.tab.title 		= args.title || 'title';
+$.tab.targetDate	= args.targetDate || 'date';
+$.tabWin.title 		= args.title || 'win title';
 
-// alert(' test1 ' + args.objName);
 
 
-$.yesterdayLabel.text		= args.yesterdayLabel || 'Yesterday';
-$.yesterdayLabel.objName	= args.objName;
 
-$.todayLabel.text 		= args.todayLabel || 'Today';
+/*// Create our node items
+var nodes = [
+    { menuHeader: "My Tabs", id: 0, title: "Home", image: "/images/home.png" },
+    { id: 1, title: "Contact", image: "/images/phone.png" },
+    { id: 2, title: "Settings", image: "/images/gear.png" }
+];
 
-$.tomorrowLabel.text 	= args.tomorrowLabel || 'Tomorrow';
+// Initialize the slide menu
+$.SlideMenu.init({
+    nodes: nodes,
+    color: {
+        headingBackground: "#000",
+        headingText: "#FFF"
+    }
+});
 
-function changeDate(e) {
+// Set the first node as active
+$.SlideMenu.setIndex(0);
 
-	var obj = e.source;
+// Add an event listener on the nodes
+$.SlideMenu.Nodes.addEventListener("click", handleMenuClick);
 
-	if(obj.id == 'yesterdayLabel') {
-		var changeToDate = 'get_date_posts/?date=2014-02-06&post_type=event&pages=1';
-		Ti.API.info( '========== IKI TARGET DATE YESTERDAY ========== ' + changeToDate );
-	} else if(obj.id == 'todayLabel') {
-		var changeToDate = 'get_date_posts/?date='+ Alloy.Globals.getCurrentDate('yyyy-mm-dd') +'&post_type=event&pages=1';
-		Ti.API.info( '========== IKI TARGET DATE TODAY ========== ' + changeToDate );
-	} else if(obj.id == 'tomorrowLabel') {
-		var changeToDate = 'get_date_posts/?date=2014-02-08&post_type=event&pages=1';
-		Ti.API.info( '========== IKI TARGET DATE TOMORROW ========== ' + changeToDate );
-	}
+// Handle the click event on a node
+function handleMenuClick(_event) {
+    if(typeof _event.row.id !== "undefined") {
+        // Open the corresponding controller
+        openScreen(_event.row.id);
+    }
+}
 
-	Alloy.Globals.showLoading('Retrieving Event at Waktu Pilihan', function(callback)
-	{
-		Alloy.Globals.MainWindow.add(callback);
-		callback.show();
-	});
-	
-	Alloy.Globals.serviceApi.getEventByDate({
-		apikey: changeToDate
-	}, function(results) {
-		results.apiKey = changeToDate;
-		Ti.API.debug( '===== Debug JSON API CHANGE DATE PREND---> ' + JSON.stringify(results) );
-		Alloy.Globals.MainWindow.add( Alloy.createController("event/browse", results).getView() );
-	});
-}*/
+
+
+// Slide Animation
+function openMenu() {
+    $.AppWrapper.animate({
+        left: "200dp",
+        duration: 250,
+        curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+    });
+}
+
+function closeMenu() {
+    $.AppWrapper.animate({
+        left: "0dp",
+        duration: 250,
+        curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT
+    });
+}
+
+$.AppWrapper.addEventListener("swipe", function(_event) {
+    if(_event.direction == "right") {
+        openMenu();
+    } else if(_event.direction == "left") {
+        closeMenu();
+    }
+});*/

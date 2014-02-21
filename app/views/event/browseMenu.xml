@@ -1,22 +1,10 @@
 <Alloy>
-	<Tab title="12 Februari" icon="KS_nav_ui.png">
-        <Window title="12 Februari">
+	<Tab id="tab" >
+        <Window id="tabWin" fullscreen="false" top="-80">
+        	<!-- <Require type="widget" src="com.mcongrove.slideMenu" id="SlideMenu" /> -->
+        	
+        	<!-- <Require type="widget" src="ds.slideMenu" id="ds"/> -->
         	<!-- <label id="tabLabel">Aku Adalah Label</label> -->
         </Window>
    </Tab>
 </Alloy>
-
-
-<!-- <Alloy>
-	<View id="browseMenuWrapper" class="container">
-		<View id="yesterdayView" class="typeView" onClick="changeDate" >
-			<Label id="yesterdayLabel" />
-		</View>
-		<View id="todayView" class="typeView" onClick="changeDate">
-			<Label id="todayLabel"/>
-		</View>
-		<View id="tomorrowView" class="typeView" onClick="changeDate">
-			<Label id="tomorrowLabel"/>
-		</View>
-	</View>
-</Alloy> -->

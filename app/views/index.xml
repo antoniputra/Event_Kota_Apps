@@ -1,52 +1,12 @@
 <Alloy>
+	<!-- <Window width="100" backgroundColor="red">
+    	<Label>Hello</Label>
+    </Window> -->
+
 	<TabGroup id="mainTab">
-		<!-- <Tab title="Tab 1" icon="KS_nav_ui.png">
-            <Window title="Tab 1">
-                <Label>I am Window 1</Label>
-                <Menu id="menu" platform="android">
-                    <MenuItem id="menuItem" title="Item 1" icon="images/action_about.png" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS" />
-                    <MenuItem id="menuItem" title="Item 2" icon="images/action_settings.png" showAsAction="Ti.Android.SHOW_AS_ACTION_ALWAYS" />
-                    <MenuItem id="menuItem" title="Item 3" icon="images/action_about.png" showAsAction="Ti.Android.SHOW_AS_ACTION_NEVER" />
-                </Menu>               
-            </Window>
-        </Tab>
-        <Tab title="Tab 2" icon="KS_nav_views.png">
-            <Window title="Tab 2">
-                <Label>I am Window 2</Label>
-            </Window>
-        </Tab> -->
-	</TabGroup>
+           
+    </TabGroup>
+    <!-- <Require id="home" platform="android" src="about">
+        <Widget id="slideMenu" src="com.jasonkneen.slidemenu"/>
+    </Require> -->
 </Alloy>
-
-
-<!-- <Alloy>
-	<Window id="mainWindow" title="Event Kota" />
-</Alloy> -->
-
-
-
-<!-- <TabGroup backgroundColor="white" >
-    <Tab id="tab1" title="Tab 1" icon="KS_nav_views.png">
-        <Window id="mainWindow" title="Main Window" />
-    </Tab>
-    <Tab id="tab2" title="Tab 2" icon="KS_nav_views.png">
-        <Window id="win2" title="Tab 2">
-            <Label id="label2" color="#999">I am Window 2</Label>
-        </Window>
-    </Tab>
-    <Tab id="tab3" title="Tab 3" icon="KS_nav_views.png">
-        <Window id="win2" title="Tab 3">
-            <Label id="label3" color="#999">I am Window 3</Label>
-        </Window>
-    </Tab>
-    <Tab id="tab4" title="Tab 4" icon="KS_nav_views.png">
-        <Window id="win2" title="Tab 4">
-            <Label id="label4" color="#999">I am Window 4</Label>
-        </Window>
-    </Tab>
-    <Tab id="tab5" title="Tab 5" icon="KS_nav_views.png">
-        <Window id="win2" title="Tab 5">
-            <Label id="label5" color="#999">I am Window 5</Label>
-        </Window>
-    </Tab>
-</TabGroup> -->
