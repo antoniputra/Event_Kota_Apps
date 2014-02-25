@@ -1,5 +1,5 @@
 <Alloy>
-	<Window>
+	<Window fullscreen="false">
 		<!-- <View id="formView">
 			<View class="formControls">
 				<Label id="labelTitle" width="Ti.UI.FILL" height="35" color="fff">Event Title</Label>

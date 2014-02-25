@@ -1,26 +1,24 @@
 var args = arguments[0] || {};
 
-var forms = require('helper');
 var fields = [
-	{ title:'Event Name', type:'text', id:'name' },
+	{ title:'Keyword', type:'text', id:'keyword' },
 	{ title:'City', type:'picker', id:'city', data: helper.staticCityData },
 	{ title:'Date', type:'date', id:'date' },
 	{ title:'Search', type:'submit', id:'fireSearch' }
 ];
 
-var win = Ti.UI.createWindow({fullscreen:false});
-var form = forms.createForm({
-	style: forms.STYLE_LABEL,
+var win 	= $.search;
+var form 	= helper.createForm({
+	style: helper.STYLE_LABEL,
 	fields: fields
 });
 
 win.add(form);
-win.open();
+// win.open();
 
 form.addEventListener('fireSearch', function(e) {
 	searchResult(e.values);
 });
-
 
 win.addEventListener('open', function(e) {
     var activity = win.activity;
@@ -51,11 +49,23 @@ function searchResult(datas)
 
 	var winResult = Ti.UI.createWindow({fullscreen:false});
 
-	var searchInfo 	= 'Title: '+ datas.name +', City: '+ datas.city +', date: '+ displayDate;
+	var searchInfo 	= 'Keyword : '+ datas.keyword +', Kota : '+ datas.city +', Waktu : '+ displayDate;
 	var apiCity 	= datas.city == 'All Cities' ? '' : datas.city;
 	winResult.add(Alloy.createController("event/browse", {
-		apiKey: 'get_event_dates/?date='+ targetDate +'&etype=null&title='+ datas.name +'&city='+ apiCity,
+		apiKey: 'get_events/?date='+ targetDate +'&etype=null&title='+ datas.keyword +'&city='+ apiCity,
 		infoData: searchInfo
 	}).getView());
 	winResult.open();
+
+	winResult.addEventListener('open', function(e) {
+	    var activity = winResult.activity;
+	 
+	    if( Alloy.Globals.Android.Api >= 11 ) {
+	        activity.actionBar.title = "Search Event";
+	        activity.actionBar.displayHomeAsUp = true; 
+	        activity.actionBar.onHomeIconItemSelected = function() {
+	            winResult.close();
+	        };
+	    }
+	});
 }

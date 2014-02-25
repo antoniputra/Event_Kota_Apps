@@ -2,8 +2,6 @@ var args = arguments[0] || {},
 	viewBrowse 	= $.browseViewWrapper,
 	moment 		= require('alloy/moment');
 
-Ti.API.info( '===== Request this API ---> ' + args.apiKey );
-
 var loading = Alloy.Globals.showLoading('Retrieving Events...');
 viewBrowse.add(loading);
 loading.show();
@@ -60,6 +58,32 @@ function renderBrowse(params)
 	    }
 
 	    $.tableBrowse.data = tableData;
+
+	    var conDetail 	= Alloy.createController('event/detail'),
+		    winDetail	= conDetail.getView();
+
+	    $.tableBrowse.addEventListener("click", function(e) 
+	    {
+		    if(e.source.children[0].apiDetail)
+		    {
+			    conDetail.setDetailEvent(e.source.children[0].apiDetail);
+
+			    winDetail.open();
+
+			    winDetail.addEventListener('open', function(e) {
+				    var activity = winDetail.activity;
+				 
+				    if( Alloy.Globals.Android.Api >= 11 ) {
+				        // activity.actionBar.title = "Event Kota";
+				        activity.actionBar.displayHomeAsUp = true; 
+				        activity.actionBar.onHomeIconItemSelected = function() {
+				            winDetail.close();
+				        };
+				    }
+				});
+			}
+	    });
+
 	} else {
 
 		var row = Ti.UI.createTableViewRow();

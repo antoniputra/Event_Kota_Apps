@@ -43,7 +43,7 @@
 	width: Ti.UI.FILL,
     height: Ti.UI.SIZE,
 	backgroundColor: "#081317",
-	top: "0dp"
+	top: "3dp"
 }
 
 ".btnMenu" : {
@@ -69,7 +69,7 @@
 "#detailViewPadding" : {
 	layout: "vertical",
 	width: Ti.UI.FILL,
-    height: Ti.UI.FILL,
+    height: Ti.UI.SIZE,
     top: "5dp", left: "10dp", right: "10dp", bottom: "5dp"
 }
 
@@ -105,6 +105,10 @@
 "#descriptionText" : {
 	font: {fontSize: '15', fontWeight: 'bold'},
 	left: 0, top: '4dp'
+}
+"#detailContent" : {
+	width:Ti.UI.FILL,
+	height:Ti.UI.SIZE
 }
 
 

@@ -14,19 +14,16 @@
  */
 
 exports.request = function(apikey, callbacknya) {
+	
 
 	if(Ti.Network.online) {
 
-		if(apikey == '')
-		{
-			// apikey = 'get_date_posts/?date=2014-01-10&post_type=event&pages=1';
-		}
-
 		var url = Alloy.CFG.ApiUrl + apikey,
 		http = Ti.Network.createHTTPClient();
+		
+		Ti.API.info( '===== Request this API ---> ' + url );
 
 		http.onload = function() {
-			Ti.API.debug('Result for JSON nya prend : ' + JSON.stringify(this.responseText));
 			callbacknya({data: JSON.parse(this.responseText)});
 		};
 		http.onerror = function(e) {

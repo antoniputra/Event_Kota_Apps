@@ -9,7 +9,5 @@
 	"os:blackberry": {},
 	"os:ios": {},
 	"os:mobileweb": {},
-	"dependencies": {
-		"com.jasonkneen.slidemenu":"1.0"
-    }
+	"dependencies": {}
 }

@@ -39,6 +39,7 @@
 
 					<Label id="descriptionText">Description</Label>
 					<Label id="detailContent" top="2" />
+					<!-- <WebView id="detailContent" /> -->
 				</View>
 			</ScrollView>
 

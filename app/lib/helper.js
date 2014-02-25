@@ -1,5 +1,5 @@
 exports.staticCityData = [
-	'All Cities', 'Surabaya', 'Jakarta', 'Bandung',	'Yogyakarta'
+	'Semua Kota', 'Surabaya', 'Jakarta', 'Bandung',	'Yogyakarta'
 ];
 
 
@@ -114,20 +114,22 @@ var addField = function(field, fieldRefs) {
 			setupPickerTextField(fieldObject, Ti.UI.PICKER_TYPE_DATE);
 		}
 	} else if (type === exports.TYPE_PICKER) {
-		/*if (isAndroid) {
+		if (isAndroid) {
 			fieldObject = Ti.UI.createPicker({
 				type: Ti.UI.PICKER_TYPE_PLAIN,
-				width: '250dp'
+				width: '250dp',
+				useSpinner: true
 			});
 			handleStyle(form, undefined, title);
 			for (var i in field.data) {
 				fieldObject.add(Ti.UI.createPickerRow({title:field.data[i]}));	
 			}
-		} else {*/
+
+		} else {
 			fieldObject = Ti.UI.createTextField(textFieldDefaults);
 			handleStyle(form, fieldObject, title);
 			setupPickerTextField(fieldObject, Ti.UI.PICKER_TYPE_PLAIN, field.data);
-		// }
+		}
 	} else if (type === exports.TYPE_SUBMIT) {
 		var button = Ti.UI.createButton({
 			title: title,
@@ -138,7 +140,14 @@ var addField = function(field, fieldRefs) {
 		button.addEventListener('click', function(e) {
 			var values = {};
 			for (var i in fieldRefs) {
-				values[i] = fieldRefs[i].value;	
+				// Ti.API.info('|||||||||| check value '+ JSON.stringify(fieldRefs[i].value) );
+				if (fieldRefs[i].value !== undefined) {
+					values[i] = fieldRefs[i].value;
+				} else {
+					if(fieldRefs[i].getSelectedRow(0)) {
+						values[i] = fieldRefs[i].getSelectedRow(0).title;
+					}
+				}
 			}
 			form.fireEvent(id, {values:values});	
 		});	

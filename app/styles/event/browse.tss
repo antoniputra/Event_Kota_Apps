@@ -3,7 +3,7 @@
 }
 
 "#browseViewWrapper" : {
-    backgroundColor:'#111',
+    backgroundColor:'#1a1a1a',
     top:0,
     left:0,
     width: Ti.UI.FILL,

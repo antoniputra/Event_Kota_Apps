@@ -37,7 +37,7 @@ asmoyDate.prototype.getSetDay = function()
 		});
 	}
 
-	Ti.API.info("Lihat Hasil : " + JSON.stringify(dateResult) );
+	// Ti.API.info("Lihat Hasil : " + JSON.stringify(dateResult) );
 
 	return dateResult;
 };
@@ -46,6 +46,18 @@ asmoyDate.prototype.get = function(setFormat)
 {
 	var getFormat = setFormat || this.getApiFormat;
 	return this.moment().format(getFormat);
+};
+
+asmoyDate.prototype.getYesterday = function(setFormat)
+{
+	var getFormat = setFormat || this.getApiFormat;
+	return this.moment().subtract('days', 1).format(getFormat);
+};
+
+asmoyDate.prototype.getTomorrow = function(setFormat)
+{
+	var getFormat = setFormat || this.getApiFormat;
+	return moment().add('days', 1).format(getFormat);
 };
 
 module.exports = asmoyDate;
